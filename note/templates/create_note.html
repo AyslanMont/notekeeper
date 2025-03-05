@@ -1,0 +1,31 @@
+{% extends "model.html" %}
+
+{% block title %}Criar Nota - NoteKeeper{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg">
+            <div class="card-header bg-dark text-white text-center">
+                <h4>Nova Nota</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('note.create_note') }}">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Texto</label>
+                        <textarea class="form-control" id="text" name="text" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Salvar Nota</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <a href="{{ url_for('note.list_notes') }}" class="text-decoration-none">Ver minhas notas</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

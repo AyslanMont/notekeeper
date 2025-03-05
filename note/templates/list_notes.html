@@ -1,0 +1,17 @@
+{% extends "model.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Minhas Notas</h2>
+    <ul class="list-group">
+        {% for note in notes %}
+        <li class="list-group-item">
+            <h5>{{ note.title }}</h5>
+            <p>{{ note.text }}</p>
+        </li>
+        {% else %}
+        <li class="list-group-item">Nenhuma nota encontrada.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

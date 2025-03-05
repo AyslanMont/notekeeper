@@ -1,0 +1,37 @@
+{% extends "model_no_auth.html" %}
+
+{% block title %}Registro - NoteKeeper{% endblock %}
+
+{% block content %}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-lg">
+            <div class="card-header bg-dark text-white text-center">
+                <h4>Registrar-se</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('auth.register') }}">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwd" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="passwd" name="passwd" required>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Registrar</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <small>Já tem uma conta? <a href="{{ url_for('auth.login') }}">Faça login</a></small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
