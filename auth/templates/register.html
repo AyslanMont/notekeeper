@@ -13,17 +13,43 @@
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ url_for('auth.register') }}">
+                    {{ form.hidden_tag() }}
+
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <label for="{{ form.name.id }}" class="form-label">Nome</label>
+                        {{ form.name(class="form-control", placeholder="Seu nome...") }}
+                        {%if form.name.errors %}
+                            <div class="text-danger">
+                                {{ form.name.errors[0] }}
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="{{ form.email.id }}" class="form-label">E-mail</label>
+                        {{ form.email(class="form-control", placeholder="Seu email...") }}
+                        {% if form.email.errors %}
+                            <div class="text-danger">
+                                {{ form.email.errors[0] }}
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="mb-3">
-                        <label for="passwd" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="passwd" name="passwd" required>
+                        <label for="{{ form.passwd.id }}" class="form-label">Senha</label>
+                        {{ form.passwd(class="form-control", placeholder="Sua senha...") }}
+                        {% if form.passwd.errors %}
+                            <div class="text-danger">
+                                {{ form.passwd.errors[0] }}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.confirm_passwd.id }}" class="form-label">Confirmar Senha</label>
+                        {{ form.confirm_passwd(class="form-control", placeholder="Confirme sua senha...") }}
+                        {% if form.confirm_passwd.errors %}
+                            <div class="text-danger">
+                                {{ form.confirm_passwd.errors[0] }}
+                            </div>
+                        {% endif %}
                     </div>
                     <button type="submit" class="btn btn-dark w-100">Registrar</button>
                 </form>

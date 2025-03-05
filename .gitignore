@@ -22,3 +22,9 @@ rad.json
 TestResults.xml
 env
 __pycache__
+app/__pycache__
+auth/__pycache__
+database/__pycache__
+models/__pycache__
+note/__pycache__
+notekeeper.db
