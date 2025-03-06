@@ -1,1 +1,1 @@
-Projeto criado para praticar a modularização com Blueprints e reforçar conceitos de segurança, incluindo autenticação, autorização de usuários e validação de formulários.
+## Projeto criado para praticar a modularização com Blueprints e reforçar conceitos de segurança, incluindo autenticação, autorização de usuários e validação de formulários.

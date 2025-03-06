@@ -18,7 +18,7 @@ Base.metadata.create_all(bind=engine)
 def index():
     if not current_user.is_authenticated:
         return redirect(url_for('auth.login'))
-    return render_template("model.html")
+    return render_template("index.html")
 
 login_manager = LoginManager()
 login_manager.init_app(app)
