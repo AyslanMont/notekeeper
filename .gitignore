@@ -28,3 +28,4 @@ database/__pycache__
 models/__pycache__
 note/__pycache__
 notekeeper.db
+.env

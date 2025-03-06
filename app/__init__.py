@@ -4,6 +4,10 @@ from notekeeper.models.User import User
 from notekeeper.database.config import Base, engine
 from notekeeper.auth.auth import auth_bp
 from notekeeper.note.note import note_bp
+import os
+from dotenv import load_dotenv
+
+load_dotenv() 
 
 app = Flask(__name__, template_folder="templates")
 
@@ -11,7 +15,7 @@ app.register_blueprint(auth_bp)
 app.register_blueprint(note_bp)
 
 
-app.config["SECRET_KEY"] = "secret_key"
+app.config["SECRET_KEY"] = str(os.getenv("SECRET_KEY"))
 Base.metadata.create_all(bind=engine)
 
 @app.route('/')
