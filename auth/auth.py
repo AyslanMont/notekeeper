@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for
+from flask import Blueprint, request, render_template, redirect, url_for, flash
 from notekeeper.models.User import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user
@@ -47,10 +47,10 @@ def login():
         user = User.get_by_email(email)
 
         if user and check_password_hash(user.passwd, passwd):
-            if user:
-                login_user(user)
+            login_user(user)
             return redirect(url_for('note.list_notes'))
-
+        else:
+            flash('Email ou senha inválidos, tente novamente.', 'danger')
     return render_template('login.html', form=form)
 
 @auth_bp.route('/logout')
