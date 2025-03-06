@@ -1,17 +1,16 @@
 {% extends "model.html" %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2>Minhas Notas</h2>
-    <ul class="list-group">
-        {% for note in notes %}
-        <li class="list-group-item">
-            <h5>{{ note.title }}</h5>
-            <p>{{ note.text }}</p>
-        </li>
-        {% else %}
-        <li class="list-group-item">Nenhuma nota encontrada.</li>
-        {% endfor %}
-    </ul>
-</div>
+{% for note in notes %}
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ note.title }}</h5>
+            <p class="card-text">{{ note.text }}</p>
+            <a href="{{ url_for('note.edit_notes', id=note.id) }}" class="btn btn-primary">Editar</a>
+            <form method="POST" action="{{ url_for('note.delete_note', id=note.id) }}" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
+        </div>
+    </div>
+{% endfor %}
 {% endblock %}
